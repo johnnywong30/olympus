@@ -21,23 +21,23 @@ const navLinks = [
   },
   {
     title: 'Documentation',
-    url: '#',
+    url: '/documentation',
     items: [
       {
         title: 'Introduction',
-        url: '#',
+        url: '/documentation/intro',
       },
       {
         title: 'Get Started',
-        url: '#',
+        url: '/documentation/get-started',
       },
       {
         title: 'Tutorials',
-        url: '#',
+        url: '/documentation/tutorials',
       },
       {
         title: 'Changelog',
-        url: '#',
+        url: '/documentation/changelog',
       },
     ],
     icon: 'BookOpen',
@@ -47,20 +47,8 @@ const navLinks = [
     url: '#',
     items: [
       {
-        title: 'General',
-        url: '#',
-      },
-      {
-        title: 'Team',
-        url: '#',
-      },
-      {
-        title: 'Billing',
-        url: '#',
-      },
-      {
-        title: 'Limits',
-        url: '#',
+        title: 'Account',
+        url: '/settings/account',
       },
     ],
     icon: 'Settings2',

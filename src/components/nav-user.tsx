@@ -21,6 +21,17 @@ import {
 } from '@/components/ui/sidebar';
 import type { NavUser } from '@/types/users';
 
+function AccountDetails() {
+  return (
+    <Link href="/settings/account/">
+      <DropdownMenuItem>
+        <BadgeCheckIcon />
+        Account
+      </DropdownMenuItem>
+    </Link>
+  );
+}
+
 function SignOut() {
   const { signOut } = useClerk();
 
@@ -80,10 +91,7 @@ export function NavUser({ user }: { user: NavUser }) {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <BadgeCheckIcon />
-                Account
-              </DropdownMenuItem>
+              <AccountDetails />
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <SignOut />

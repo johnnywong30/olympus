@@ -5,7 +5,7 @@ import { Separator } from '@/components/ui/separator';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppConfig } from '@/utils/AppConfig';
 
-export const AuthTemplate = (props: { leftNav: React.ReactNode; children: React.ReactNode }) => {
+export const AuthTemplate = (props: { children: React.ReactNode }) => {
   const t = useTranslations('AuthTemplate');
 
   return (

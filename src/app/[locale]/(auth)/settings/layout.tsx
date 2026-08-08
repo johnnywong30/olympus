@@ -2,16 +2,16 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { AuthTemplate } from '@/templates/Auth/AuthTemplate';
 
-type DashboardLayoutProps = {
+type SettingsLayoutProps = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata(props: DashboardLayoutProps): Promise<Metadata> {
+export async function generateMetadata(props: SettingsLayoutProps): Promise<Metadata> {
   const { locale } = await props.params;
   const t = await getTranslations({
     locale,
-    namespace: 'DashboardLayout',
+    namespace: 'SettingsLayout',
   });
 
   return {
@@ -20,13 +20,9 @@ export async function generateMetadata(props: DashboardLayoutProps): Promise<Met
   };
 }
 
-export default async function DashboardLayout(props: DashboardLayoutProps) {
+export default async function SettingsLayout(props: SettingsLayoutProps) {
   const { locale } = await props.params;
   setRequestLocale(locale);
-  const t = await getTranslations({
-    locale,
-    namespace: 'DashboardLayout',
-  });
 
   return <AuthTemplate>{props.children}</AuthTemplate>;
 }

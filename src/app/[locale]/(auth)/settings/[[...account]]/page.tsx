@@ -7,9 +7,9 @@ export default async function UserProfilePage(props: { params: Promise<{ locale:
   setRequestLocale(locale);
 
   return (
-    <div className="my-6 lg:-ml-12">
+    <div>
       <Show when="signed-in">
-        <UserProfile path={getI18nPath('/dashboard/user-profile', locale)} />
+        <UserProfile path={getI18nPath('/settings/account', locale)} />
       </Show>
     </div>
   );

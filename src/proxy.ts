@@ -8,7 +8,12 @@ import { routing } from './libs/I18nRouting';
 
 const handleI18nRouting = createMiddleware(routing);
 
-const isProtectedRoute = createRouteMatcher(['/dashboard(.*)', '/:locale/dashboard(.*)']);
+const isProtectedRoute = createRouteMatcher([
+  '/dashboard(.*)',
+  '/:locale/dashboard(.*)',
+  '/settings(.*)',
+  '/:locale/settings(.*)',
+]);
 
 const isAuthPage = createRouteMatcher([
   '/sign-in(.*)',
@@ -31,6 +36,11 @@ const aj = arcjet.withRule(
   }),
 );
 
+function getLocaleFromPathname(pathname: string): string {
+  const [, maybeLocale] = pathname.split('/');
+  return routing.locales.includes(maybeLocale as any) ? `/${maybeLocale}` : '';
+}
+
 export default async function proxy(request: NextRequest, event: NextFetchEvent) {
   // Verify the request with Arcjet
   // Use `process.env` instead of Env to reduce bundle size in middleware
@@ -48,7 +58,7 @@ export default async function proxy(request: NextRequest, event: NextFetchEvent)
     // oxlint-disable-next-line typescript/return-await
     return clerkMiddleware(async (auth, req) => {
       if (isProtectedRoute(req)) {
-        const locale = req.nextUrl.pathname.match(/(\/.*)\/dashboard/u)?.at(1) ?? '';
+        const locale = getLocaleFromPathname(req.nextUrl.pathname);
 
         const signInUrl = new URL(`${locale}/sign-in`, req.url);
 
