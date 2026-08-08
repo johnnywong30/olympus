@@ -28,15 +28,5 @@ test.describe('Sanity', () => {
 
       await expect(page.getByText('Welcome to our About page', { exact: false })).toBeVisible();
     });
-
-    test('should navigate to the portfolio page', async ({ page }) => {
-      await page.goto('/');
-
-      await page.getByRole('link', { name: 'Portfolio' }).click();
-
-      await expect(page).toHaveURL(/portfolio$/u);
-
-      await expect(page.locator('main').getByRole('link', { name: /^Portfolio/u })).toHaveCount(6);
-    });
   });
 });

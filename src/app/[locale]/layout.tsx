@@ -2,8 +2,9 @@ import type { Metadata, Viewport } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { routing } from '@/libs/I18nRouting';
+import { TooltipProvider } from '@/components/ui/tooltip';
 import '@/styles/global.css';
+import { routing } from '@/libs/I18nRouting';
 
 export const metadata: Metadata = {
   icons: [
@@ -54,7 +55,9 @@ export default async function RootLayout(props: {
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider>{props.children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <TooltipProvider>{props.children}</TooltipProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { LocaleSwitcher } from '@/components/LocaleSwitcher';
 import { Link } from '@/libs/I18nNavigation';
-import { BaseTemplate } from '@/templates/BaseTemplate';
+import { BaseTemplate } from '@/templates/Base/BaseTemplate';
 
 export default async function Layout(props: {
   children: React.ReactNode;
@@ -30,14 +30,9 @@ export default async function Layout(props: {
               </Link>
             </li>
             <li>
-              <Link href="/portfolio/" className="border-none text-gray-700 hover:text-gray-900">
-                {t('portfolio_link')}
-              </Link>
-            </li>
-            <li>
               <a
                 className="border-none text-gray-700 hover:text-gray-900"
-                href="https://github.com/ixartz/Next-js-Boilerplate"
+                href="https://github.com/johnnywong30/olympus"
               >
                 GitHub
               </a>

@@ -29,6 +29,7 @@ export const expense = pgTable('expense', {
   }),
   source: varchar('source', { length: 255 }),
   isIncome: boolean('is_income').default(false).notNull(),
+  expenseDate: timestamp('expense_date', { withTimezone: true }).notNull(),
 });
 
 export type Expense = typeof expense.$inferSelect;

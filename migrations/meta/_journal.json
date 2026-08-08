@@ -8,6 +8,20 @@
       "when": 1786158871238,
       "tag": "0000_perfect_miss_america",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1786209527909,
+      "tag": "0001_cute_lady_ursula",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1786209598948,
+      "tag": "0002_cuddly_zuras",
+      "breakpoints": true
     }
   ]
 }
