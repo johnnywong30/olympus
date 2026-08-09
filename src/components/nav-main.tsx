@@ -27,7 +27,9 @@ export function NavMain({ items }: { items: NavLink[] }) {
             className="group/collapsible"
             render={<SidebarMenuItem />}
           >
-            <CollapsibleTrigger render={<SidebarMenuButton tooltip={item.title} />}>
+            <CollapsibleTrigger
+              render={<SidebarMenuButton tooltip={item.title} className="text-base" />}
+            >
               {item.icon && <DynamicIcon name={item.icon} />}
               <span>{item.title}</span>
               <ChevronRightIcon className="ml-auto transition-transform duration-200 group-data-open/collapsible:rotate-90" />
@@ -37,7 +39,7 @@ export function NavMain({ items }: { items: NavLink[] }) {
                 {item.items?.map((subItem) => (
                   <SidebarMenuSubItem key={subItem.title}>
                     <SidebarMenuSubButton render={<a href={subItem.url} />}>
-                      <span>{subItem.title}</span>
+                      <span className="text-base">{subItem.title}</span>
                     </SidebarMenuSubButton>
                   </SidebarMenuSubItem>
                 ))}

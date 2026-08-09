@@ -3,6 +3,7 @@ import Link from 'next/link';
 import * as React from 'react';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
+import { ModeToggle } from '@/components/ui/mode-toggle';
 import {
   Sidebar,
   SidebarContent,
@@ -26,7 +27,10 @@ export async function AppSidebar({ ...props }: React.ComponentProps<typeof Sideb
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <SidebarMenu>
-          <Link href="/dashboard/">
+          <Link
+            href="/dashboard/"
+            className="text-sidebar-primary hover:border-0 hover:text-sidebar-primary/80"
+          >
             <SidebarMenuItem className="flex flex-row gap-2">
               <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                 <ZapIcon />

@@ -13,6 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { ModeToggleSub } from '@/components/ui/mode-toggle';
 import {
   SidebarMenu,
   SidebarMenuButton,
@@ -23,7 +24,7 @@ import type { NavUser } from '@/types/users';
 
 function AccountDetails() {
   return (
-    <Link href="/settings/account/">
+    <Link href="/settings/account/" className="link-plain">
       <DropdownMenuItem>
         <BadgeCheckIcon />
         Account
@@ -40,7 +41,7 @@ function SignOut() {
   };
 
   return (
-    <Link href="/" onClick={handleSignOut}>
+    <Link href="/" className="link-plain" onClick={handleSignOut}>
       <DropdownMenuItem>
         <LogOutIcon />
         Log out
@@ -92,6 +93,7 @@ export function NavUser({ user }: { user: NavUser }) {
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <AccountDetails />
+              <ModeToggleSub />
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <SignOut />

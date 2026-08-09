@@ -27,7 +27,7 @@ export const AuthTemplate = (props: { children: React.ReactNode }) => {
             author: () => (
               <a
                 href="https://nextjs-boilerplate.com"
-                className="text-blue-700 hover:border-b-2 hover:border-blue-700"
+                className="hover:border-b-2 hover:border-chart-2"
               >
                 Next.js Boilerplate
               </a>
