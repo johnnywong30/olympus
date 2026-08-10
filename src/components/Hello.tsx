@@ -13,24 +13,6 @@ export const Hello = async () => {
           email: user?.primaryEmailAddress?.emailAddress ?? '',
         })}
       </p>
-      <p>
-        {t.rich('alternative_message', {
-          url: () => (
-            <a href="https://nextjs-boilerplate.com/pro-saas-starter-kit">
-              Next.js Boilerplate Pro
-            </a>
-          ),
-        })}
-      </p>
-      <p>
-        {t.rich('max_message', {
-          url: () => (
-            <a href="https://nextjs-boilerplate.com/nextjs-multi-tenant-saas-boilerplate">
-              Next.js Boilerplate Max
-            </a>
-          ),
-        })}
-      </p>
     </>
   );
 };

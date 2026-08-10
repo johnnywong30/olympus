@@ -11,6 +11,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { NavLinks } from '@/lib/navigation'; // adjust path
+import { cn } from '@/lib/utils';
 import { getBreadcrumbTrail } from '@/utils/Breadcrumbs';
 
 export function DynamicBreadcrumbs() {
@@ -28,11 +29,16 @@ export function DynamicBreadcrumbs() {
           const isLast = index === trail.length - 1;
           return (
             <Fragment key={crumb.url}>
-              <BreadcrumbItem className={isLast ? undefined : 'hidden md:block'}>
+              <BreadcrumbItem className={cn('text-base', isLast ? undefined : 'hidden md:block')}>
                 {isLast ? (
                   <BreadcrumbPage>{crumb.title}</BreadcrumbPage>
                 ) : (
-                  <BreadcrumbLink href={crumb.url}>{crumb.title}</BreadcrumbLink>
+                  <BreadcrumbLink
+                    href={crumb.url}
+                    className="text-base text-primary hover:text-primary/80"
+                  >
+                    {crumb.title}
+                  </BreadcrumbLink>
                 )}
               </BreadcrumbItem>
               {!isLast && <BreadcrumbSeparator className="hidden md:block" />}

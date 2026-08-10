@@ -1,4 +1,4 @@
-import { pgTable, uuid, varchar, unique } from 'drizzle-orm/pg-core';
+import { pgTable, uuid, varchar, unique, index } from 'drizzle-orm/pg-core';
 import { budget } from './Budget';
 
 export const budgetShared = pgTable(
@@ -12,6 +12,8 @@ export const budgetShared = pgTable(
   },
   (table) => [
     unique('budget_shared_budget_id_shared_with_unique').on(table.budgetId, table.sharedWith),
+    index('budget_shared_budget_id_idx').on(table.budgetId),
+    index('budget_shared_shared_with_idx').on(table.sharedWith),
   ],
 );
 

@@ -6,7 +6,7 @@ export default async function DashboardPage(props: { params: Promise<{ locale: s
   setRequestLocale(locale);
 
   return (
-    <div className="py-5 [&_p]:my-6">
+    <div className="py-4 [&_p]:my-6">
       <Hello />
     </div>
   );

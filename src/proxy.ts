@@ -4,6 +4,7 @@ import createMiddleware from 'next-intl/middleware';
 import type { NextFetchEvent, NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import arcjet from '@/libs/Arcjet';
+import { getSignInPath } from './libs/I18nNavigation';
 import { routing } from './libs/I18nRouting';
 
 const handleI18nRouting = createMiddleware(routing);
@@ -60,7 +61,7 @@ export default async function proxy(request: NextRequest, event: NextFetchEvent)
       if (isProtectedRoute(req)) {
         const locale = getLocaleFromPathname(req.nextUrl.pathname);
 
-        const signInUrl = new URL(`${locale}/sign-in`, req.url);
+        const signInUrl = new URL(getSignInPath(locale), req.url);
 
         await auth.protect({
           unauthenticatedUrl: signInUrl.toString(),

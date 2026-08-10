@@ -3,7 +3,6 @@ import Link from 'next/link';
 import * as React from 'react';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
-import { ModeToggle } from '@/components/ui/mode-toggle';
 import {
   Sidebar,
   SidebarContent,

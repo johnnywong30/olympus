@@ -1,4 +1,8 @@
 import { createNavigation } from 'next-intl/navigation';
 import { routing } from './I18nRouting';
 
-export const { Link, usePathname, useRouter } = createNavigation(routing);
+export const { Link, redirect, usePathname, useRouter, getPathname } = createNavigation(routing);
+
+export function getSignInPath(locale: string) {
+  return getPathname({ href: '/sign-in', locale });
+}
